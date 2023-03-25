@@ -433,3 +433,40 @@ let username = "JackOfAllTrades";
 let userCheck = /^[a-z][a-z]+\d*$|[a-z]\d\d+$/i; // Change this line
 let result = userCheck.test(username);
 ```
+## code explanation
+Code Explanation
+^ - start of input
+[a-z] - first character is a letter
+[a-z]+ - following characters are letters
+\d*$ - input ends with 0 or more digits
+| - or
+^[a-z] - first character is a letter
+\d\d+ - following characters are 2 or more digits
+$ - end of input
+
+or
+
+^ - start of input
+[a-z] - first character is a letter
+[0-9]{2,} - ends with two or more numbers
+| - or
+[a-z]+ - has one or more letters next
+\d* - and ends with zero or more numbers
+$ - end of input
+i - ignore case of input
+
+# Match Whitespace
+The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+This match call would return [" ", " "].
+```
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; // Change this line
+let result = sample.match(countWhiteSpace);
+console.log(result)
+,,,
