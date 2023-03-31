@@ -469,7 +469,7 @@ let sample = "Whitespace is important in separating words";
 let countWhiteSpace = /\s/g; // Change this line
 let result = sample.match(countWhiteSpace);
 console.log(result)
-,,,
+```
 
 # Match Non-Whitespace Characters
 You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
@@ -488,7 +488,6 @@ let countNonWhiteSpace = /\S/g; // Change this line
 let result = sample.match(countNonWhiteSpace);
 ```
 # Specify Upper and Lower Number of Matches
-
 Recall that you use the plus sign + to look for one or more characters and the asterisk * to look for zero or more characters. These are convenient but sometimes you want to match a certain range of patterns.
 
 You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns.
@@ -530,4 +529,26 @@ Change the regex haRegex to match the word Hazzah only when it has four or more 
 let haStr = "Hazzzzah";
 let haRegex = /Haz{4,}ah/; // Change this line
 let result = haRegex.test(haStr);
+```
+# Specify Exact Number of Matches
+You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
+
+To specify a certain number of patterns, just have that one number between the curly brackets.
+
+For example, to match only the word hah with the letter a 3 times, your regex would be /ha{3}h/.
+
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4);
+multipleHA.test(A3);
+multipleHA.test(A100);
+In order, the three test calls would return false, true, and false.
+
+Change the regex timRegex to match the word Timber only when it has four letter m's.
+```
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; // Change this line
+let result = timRegex.test(timStr);
 ```
